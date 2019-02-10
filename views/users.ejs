@@ -1,0 +1,41 @@
+<%include ./includes/header.ejs %>
+<h1>
+    <%= title %>
+</h1>
+<div style="width:960px; overflow-x:scroll;">
+<table>
+    <thead>
+        <th>No</th>
+        <th>아이디</th>
+        <th>비밀번호</th>
+        <th>이름</th>
+        <th>Email</th>
+        <th>주소</th>
+    </thead>
+    <tbody>
+        <%for(var i = 0; i < users.length; i++) {%>
+        <tr>
+            <td>
+                <%=users[i].no%>
+            </td>
+            <td>
+                <%=users[i].id%>
+            </td>
+            <td>
+                <%=users[i].password%>
+            </td>
+            <td>
+                <%=users[i].name%>
+            </td>
+            <td>
+                <%=users[i].email%>
+            </td>
+            <td>
+                <%=users[i].address%>
+            </td>
+        </tr>
+        <%}%>
+    </tbody>
+</table>
+</div>
+<%include ./includes/footer.ejs %>

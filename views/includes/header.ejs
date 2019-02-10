@@ -15,6 +15,11 @@
           <a class="p-2 text-dark" href="/">HOME</a>
           <a class="p-2 text-dark" href="#">ABOUT</a>
         </nav>
-        <a class="btn btn-outline-primary" href="/users/login">LOGIN</a>
+        <%if(session.user == undefined) {%>
+          <a class="btn btn-outline-primary" href="/users/login">LOGIN</a>
+        <%} else {%>
+          <a class="btn btn-outline-primary" href="/users/logout">LOGOUT</a>
+        <%}%>
+        
     </div>
     <div class="container">
