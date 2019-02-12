@@ -10,23 +10,22 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+            <%for(var i =0; i<notes.length; i++){%>
+            <tr class="note-lists" data-id=<%=notes[i].b_no%>>
+                <th scope="row">
+                    <%=notes[i].b_no%>
+                </th>
+                <td>
+                    <%=notes[i].b_title%>
+                </td>
+                <td>
+                    <%=notes[i].name%>
+                </td>
+                <td>
+                    <%=notes[i].b_time%>
+                </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            <%}%>
         </tbody>
     </table>
 </div>
@@ -34,3 +33,16 @@
     <a href="/notes"><button type="button" class="btn btn-primary">글쓰기</button></a>
 </div>
 <%include ./includes/footer.ejs %>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Handler when the DOM is fully loaded
+        var notes = document.getElementsByClassName('note-lists');
+        var noteHandling = function() {
+            var id = this.dataset.id;
+            location.href= "/notes/"+id;
+        };
+        for(var i =0; i<notes.length; i++) {
+            notes[i].addEventListener('click', noteHandling, false);
+        }
+    });
+</script>

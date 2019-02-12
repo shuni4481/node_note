@@ -227,3 +227,6 @@ margin-bottom: 20px;
   line-height: 50px;
   text-align: center;
 }
+.note-lists:hover{
+  cursor: pointer;
+}
